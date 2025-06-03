@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Keerah ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .background-slideshow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .bg-image {
+      position: absolute;
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transition: opacity 3s ease-in-out;
+    }
+
+    .bg-image.active {
+      opacity: 1;
+    }
+
+    .content {
+      color: white;
+      text-align: center;
+      margin-top: 80px;
+      padding: 100px;
+      backdrop-filter: blur(1px);
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .poem {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+    }
+
+    .quotes-carousel {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+    }
+
+    .quote {
+      display: none;
+      animation: fade 3s ease-in-out infinite;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.1em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      height: 100%; width: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: white;
+      color: #333;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      animation: popupFade 0.5s ease;
+    }
+
+    .close {
+      position: absolute;
+      top: 50px;
+      right: 30px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      25% { opacity: 1; }
+      75% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes popupFade {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-slideshow">
+    <img src="IMG-20250423-WA0007.jpg" class="bg-image active" />
+    <img src="IMG-20250423-WA0009.jpg" class="bg-image" />
+    <img src="IMG-20250423-WA0008.jpg" class="bg-image" />
+    <img src="IMG-20250423-WA0010.jpg" class="bg-image" />
+    <img src="IMG-20250423-WA0011.jpg" class="bg-image" />
+    <img src="IMG-20250423-WA0013.jpg" class="bg-image" />
+    <img src="IMG-20250423-WA0015.jpg" class="bg-image" />
+  </div>
+
+  <div class="content">
+    <h1>Happy Birthday, Keerah ❤️</h1>
+    <p class="poem">
+      Your smile lights up the darkest skies,<br />
+      Like stars that shine in lovers’ eyes.<br />
+      Today’s your day, my heart’s delight,<br />
+      A queen you are, glowing so bright.
+    </p>
+
+    <div class="quotes-carousel">
+      <div class="quote">"You are the poem my heart keeps writing."</div>
+      <div class="quote">"With you, every moment becomes a memory."</div>
+      <div class="quote">"Love found me when I found you."</div>
+      <div class="quote">"You are my all in all."</div>
+      <div class="quote">"You are my world Keerah. The only place i wanna live in."</div>
+      <div class="quote">"You my otherhalf, my betterhalf, my besthalf."</div>
+      <div class="quote">"You are my missing rib, My Everything."</div>
+      <div class="quote">"I love you beyond Imagination baby."</div>
+      <div class="quote">"I love you so much more Keerah."</div>
+    </div>
+
+    <button onclick="showSurprise()">🎁 Click for Surprise</button>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close" onclick="hideSurprise()">&times;</span>
+      <h2>Surprise Message 💖</h2>
+      <p>Behind every heartbeat of mine is a whisper of “I love you.”<br> Thank you for being my world, Keerah.</p>
+    </div>
+  </div>
+
+  <script>
+    // Background slideshow
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.bg-image');
+
+    setInterval(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 5000);
+
+    // Quote carousel
+    const quotes = document.querySelectorAll('.quote');
+    let quoteIndex = 0;
+
+    function showQuotes() {
+      quotes.forEach(q => q.style.display = 'none');
+      quotes[quoteIndex].style.display = 'block';
+      quoteIndex = (quoteIndex + 1) % quotes.length;
+    }
+
+    setInterval(showQuotes, 4000);
+    showQuotes();
+
+    // Surprise popup
+    function showSurprise() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function hideSurprise() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
